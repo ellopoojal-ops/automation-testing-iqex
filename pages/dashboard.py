@@ -21,6 +21,9 @@ class DashboardPage:
     USERS_COUNT = (By.XPATH, "//p[normalize-space()='Total Users']"
         "/ancestor::div[contains(@class,'border')]"
         "//p[@class='text-2xl self-center leading-none font-bold']")
+    
+    MY_PROFILE = (By.XPATH, "//ul[@role='menu']//li[@role='menuitem']//span[normalize-space()='My Account']")
+    LOGOUT_BTN = (By.XPATH, "//ul[@role='menu']//li[@role='menuitem']//span[normalize-space()='Logout']")
 
 
     def get_username_text(self):
@@ -30,4 +33,7 @@ class DashboardPage:
         return self.wait.until(EC.visibility_of_element_located(locator)).is_displayed()
         
 
-    
+    def is_profile_elements_visible(self, locator):
+        self.wait.until(EC.element_to_be_clickable(self.USER_LABEL)).click()
+
+        return self.wait.until(EC.visibility_of_element_located(locator)).is_displayed()

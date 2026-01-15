@@ -25,10 +25,16 @@ def test_dashboard_loaded(logged_in_driver):
 
 
     assert page.is_element_visible(DashboardPage.TOTAL_ORG)
-    logging.info("Total Organisations headiing is visible")
+    logging.info("Total Organisations heading is visible")
     assert page.is_element_visible(DashboardPage.ORG_COUNT)
     logging.info("Total Org count is visible")
     assert page.is_element_visible(DashboardPage.TOTAL_USERS)
-    logging.info("Total Users headiing is visible")
+    logging.info("Total Users heading is visible")
     assert page.is_element_visible(DashboardPage.USERS_COUNT)
     logging.info("Total Users count is visible")
+
+    assert page.is_profile_elements_visible(DashboardPage.MY_PROFILE)
+    logging.info("My account button is visible")
+
+    assert page.is_profile_elements_visible(DashboardPage.LOGOUT_BTN)
+    logging.info("Logout button is visible")
