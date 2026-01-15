@@ -38,8 +38,5 @@ class LoginPage:
         email_field = self.wait.until(EC.element_to_be_clickable(self.EMAIL))
         return email_field.get_attribute("validationMessage")
 
-    def is_error_message_displayed(self, text):
+    def is_toast_message_displayed(self, text):
         return self.wait.until(EC.visibility_of_element_located((By.XPATH, f'//*[contains(text(), "{text}")]'))).is_displayed()
-
-    def is_login_successful(self):
-        return self.wait.until(EC.visibility_of_element_located(self.DASHBOARD)).is_displayed()
