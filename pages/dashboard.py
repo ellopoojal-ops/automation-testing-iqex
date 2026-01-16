@@ -35,5 +35,4 @@ class DashboardPage:
 
     def is_profile_elements_visible(self, locator):
         self.wait.until(EC.element_to_be_clickable(self.USER_LABEL)).click()
-
         return self.wait.until(EC.visibility_of_element_located(locator)).is_displayed()
